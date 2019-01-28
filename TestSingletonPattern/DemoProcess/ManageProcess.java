@@ -23,7 +23,7 @@ public class ManageProcess {
         return instance;
     }
 
-    public void runProcess(Process processStart){
+    public synchronized void runProcess(Process processStart){
         if(processStart == null){
             System.out.println("Data invalid !!!");
         }
@@ -62,7 +62,7 @@ public class ManageProcess {
 
 
 
-    public static synchronized boolean checkRunning(Process process,List<Process> processList){
+    public static boolean checkRunning(Process process,List<Process> processList){
         int typeProcess;
         if(process == null){
             return false;
